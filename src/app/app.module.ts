@@ -6,12 +6,14 @@ import { HttpClientModule } from  '@angular/common/http';
 import { GithubSearchComponent } from './github-search/github-search.component';
 import { GithubProfileComponent } from './github-profile/github-profile.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GithubSearchComponent,
     GithubProfileComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
