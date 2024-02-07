@@ -1,0 +1,39 @@
+<div class="container card-body mt-4">
+    <div class="card">
+      <div class="card-header">
+        <font [size]="4"><b> Search GitHub Repositories</b></font>
+      </div>
+      <div class="card-body">
+  
+        <form class="d-flex" (ngSubmit)="searchUser()">
+          
+            <div class="">
+              <i class="fa fa-github fa-3x" aria-hidden="true"></i>
+            </div>
+            &nbsp;&nbsp;
+            <div class="col-sm-3 mt-1">
+            <input [(ngModel)]="inputGithubUser" name="user" class="form-control" type="search"
+              placeholder="GitHub Username" id="validationDefault01">
+            </div>
+          &nbsp;&nbsp;
+          <div *ngIf="inputGithubUser!='' ; else elseBlock" class="col-auto mt-1">
+            <button type="submit" value="Search" class="btn btn-success">Search
+              </button>
+          </div>
+          <ng-template #elseBlock>
+            <div class="col-auto mt-1">
+              <button type="submit" value="Search" class="btn btn-secondary" disabled>Search
+                </button>
+            </div>
+         </ng-template>
+  
+          <!-- {{inputGithubUser}} -->
+        </form>
+  
+      </div>
+    </div>
+    <div>
+    </div>
+  </div>
+  
+  
