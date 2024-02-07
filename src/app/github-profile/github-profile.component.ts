@@ -5,23 +5,23 @@ import * as $ from 'jquery'
 
 @Component({
   selector: 'app-github-profile',
-  templateUrl: './github-profilee.component.html',
-  styleUrls: ['./github-profilee.component.scss']
+  templateUrl: './github-profile.component.html',
+  styleUrls: ['./github-profile.component.scss']
 })
 export class GithubProfileComponent implements OnChanges {
 
-  @Input() githubUsername!: string
+  @Input() username!: string
 
   repoFetching: boolean = false
-profileFetching: boolean = false
+  profileFetching: boolean = false
 
-data : any
-repos: any
+  data : any
+  repos: any
 
-page: number = 1;
-count: number = 0;
-tableSize: number = 10;
-tableSizes: any = [5, 10, 15, 20 ];
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 10;
+  tableSizes: any = [5, 10, 15, 20 ];
 
 //injecting the serviceFunctions
 constructor(private user:ApiService) {}
@@ -43,7 +43,7 @@ listRepo(){
 
 
 dataList():void{
-  this.user.getUser(this.githubUsername).subscribe({
+  this.user.getUser(this.username).subscribe({
     next:(response) =>{
       this.data = response;
       this.profileFetching = false;
@@ -56,7 +56,7 @@ dataList():void{
 
 
 repoList():void{
-  this.user.getRepo(this.githubUsername, this.page, this.tableSize).subscribe({
+  this.user.getRepo(this.username, this.page, this.tableSize).subscribe({
     next:(response) =>{
       this.repos = response;
     this.count = this.repos.total_count;

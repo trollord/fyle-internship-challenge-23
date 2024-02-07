@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from  '@angular/common/http';
 import { GithubSearchComponent } from './github-search/github-search.component';
-import { GithubProfileComponent } from './github-profilee/github-profilee.component';
+import { GithubProfileComponent } from './github-profile/github-profile.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -14,8 +15,15 @@ import { GithubProfileComponent } from './github-profilee/github-profilee.compon
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    // BrowserAnimationsModule,
+    NgxPaginationModule,
+    // MatProgressBarModule,
+    // MatProgressSpinnerModule,
+    // MatIconModule,
+    // FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

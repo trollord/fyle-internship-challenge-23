@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GithubProfileComponent } from './github-profilee.component';
+import { GithubProfileComponent } from './github-profile.component';
 
 describe('GithubProfileComponent', () => {
   let component: GithubProfileComponent;

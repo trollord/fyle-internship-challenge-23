@@ -1,10 +1,6 @@
-<div class="grid h-screen place-items-center">
-  <div class="font-bold text-3xl">
-    Fyle Internship Challenge
-  </div>
-  <div>
-    
-    <app-github-profile></app-github-profile>
-    <app-github-search></app-github-search>
-  </div>
+<div class="ml-10">
+<app-github-search (onSearchUser)="SearchHandler($event)"></app-github-search>
+<div *ngIf="username !== ''">
+    <app-github-profile [username]="username"></app-github-profile>
 </div>
+</div> 

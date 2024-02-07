@@ -9,13 +9,13 @@ export class GithubSearchComponent implements OnInit {
 
 // To flow the data from child to parent i.e main App-component
 @Output() onSearchUser: EventEmitter<any> = new EventEmitter();
-public inputGithubUser: string = '';
+public username: string = '';
 
 constructor() { }
 
   public searchUser(){
-    this.onSearchUser.emit(this.inputGithubUser);
-    this.inputGithubUser = '';
+    this.onSearchUser.emit(this.username);
+    this.username = '';
     
   }
 

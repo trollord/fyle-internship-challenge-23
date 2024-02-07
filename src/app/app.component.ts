@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ApiService } from './services/api.service';
 
 @Component({
@@ -6,12 +6,20 @@ import { ApiService } from './services/api.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent  {
+
+  username: string = "";
+  data : any
+
+  SearchHandler(username: string){
+    this.username = username;
+  }
+
   constructor(
     private apiService: ApiService
   ) {}
 
   ngOnInit() {
-    this.apiService.getUser('johnpapa').subscribe(console.log);
+    this.apiService.getUser(this.username).subscribe(console.log);
   }
 }

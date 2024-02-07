@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap, throwError } from 'rxjs';
+import { Observable, tap, throwError } from 'rxjs';
+import { GitHubUser } from './interface';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,22 +13,12 @@ export class ApiService {
     private httpClient: HttpClient
   ) { }
 
-  getUser(githubUsername: string) {
-    try{
-    return this.httpClient.get(`https://api.github.com/users/${githubUsername}`);
-    }
-    catch (error){
-      return throwError(() => 'An error occurred while fetching the username.');
-    }
+  getUser(username: string): Observable<GitHubUser> {      
+      return this.httpClient.get<GitHubUser>(`https://api.github.com/users/${username}`);     
   }
 
-  getRepo(githubUsername: string, page: number, perPage: number){
-    try{
-    return this.httpClient.get(`https://api.github.com/search/repositories?q=user:${githubUsername} in:name sort:updated-asc&page=${page}&per_page=${perPage}`)
-    }
-    catch (error){
-      return throwError(() => 'An error occurred while fetching repositories.');
-    }
+  getRepo(username: string, page: number, perPage: number){         
+    return this.httpClient.get(`https://api.github.com/search/repositories?q=user:${username} in:name sort:updated-asc&page=${page}&per_page=${perPage}`)
   }
 
   // implement getRepos method by referring to the documentation. Add proper types for the return type and params 
