@@ -2,6 +2,9 @@
 <li>Angular 13.x</li>
 <li>Libraries: Angular Material, Tailwind, NgxPagination, FontAwesome </li>
 
+## Live Deployemnt 
+https://fyle-internship-challenge-23-nu.vercel.app/
+
 <hr>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
